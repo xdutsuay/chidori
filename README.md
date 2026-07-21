@@ -4,6 +4,10 @@
 ![Windows](https://img.shields.io/badge/Windows-x64-0078D4?logo=windows)
 ![Releases](https://img.shields.io/github/v/release/xdutsuay/chidori?label=release)
 
+> **This repository is a public release placeholder only.** It hosts pre-built
+> downloads, screenshots, and product documentation. **There is no source code here**
+> — do not expect to clone and build from this repo.
+
 **chidori** is a cross-platform native desktop IDE with agent chat, real language
 intelligence, an integrated terminal, and a Git panel — built on a local-first
 inference engine that routes between your own machines and hosted providers.
