@@ -25,40 +25,100 @@ attached nodes still gets fast answers by routing to a hosted key, and a LAN wit
 couple of Ollama boxes gets used automatically once nodes are attached, without changing
 how you interact with the IDE.
 
-## What's in the IDE
+## Features
 
-- **Agent chat — Ask / Agent / Plan / Debug modes.** The agent runs a capped tool-calling
-  loop with mandatory chain-of-thought reasoning before every tool call and explicit
-  read-before-write / verify-your-fix / self-correct-on-error rules. Diffs are shown
-  per-edit (Monaco side-by-side view) with Accept/Reject or Accept All; Plan mode always
-  proposes rather than auto-applies. On hitting the turn budget the agent produces one
-  last plain-prose progress summary instead of just stopping, with a **Continue** button
-  to pick up from there.
-- **Scoped subagent delegation.** The agent can spin off a self-contained research
-  question into an isolated, read-only nested sub-loop — a way to investigate something
-  without spending the parent's own turn budget on exploratory back-and-forth.
-- **Context mentions.** `@file`, `@folder:path/`, `@symbol:name`, and `@codebase` resolve
-  to real file listings and workspace content at send time — not just text hints the model
-  has to guess what to do with.
-- **Real Go language intelligence via gopls** — diagnostics, hover, go-to-definition,
-  find-all-references, multi-file rename (preview → apply), quick fixes, Organize
-  Imports, Format Document, and Go to Symbol (file + workspace).
-- **Monaco editor** with a per-path model cache (tab switches don't destroy undo history),
-  inline diagnostics, sticky scroll, multi-cursor, format-on-save, and a full
-  Selection/View/Go menu surface.
-- **Integrated terminal** — multi-tab shell sessions built into the IDE.
-- **Source Control panel** — status, diff, stage/unstage, commit, branch switch and create.
-- **Workspace search** — full-text search and replace-in-files (preview then apply, case
-  toggle, include/exclude globs), a command palette with fuzzy Quick Open, and
-  cross-session chat history search.
-- **MCP client** — the agent can consume external MCP servers as tools, alongside its own
-  built-in registry.
-- **Rules, Commands, and Skills** — project-level rules injected into every request,
-  user-definable slash commands, and "Save as Skill" to turn a finished agent run into a
-  reusable per-workspace prompt template.
-- **Multi-provider dispatch** — Ollama, LM Studio, AirLLM, or any OpenAI-compatible
-  hosted provider (Anthropic, OpenAI, Groq, NVIDIA NIM, OpenRouter, …), with hybrid mode
-  racing a local and a remote leg and keeping whichever answers first.
+A product-level inventory of what chidori ships today (as of **v0.3.9**). Not every
+row is VS Code–parity deep; this is what the packaged IDE actually offers.
+
+### Agent & chat
+
+- **Modes:** Ask, Agent, Plan, and Debug — plus **All-Agent**, a chat-first layout with
+  task rail, build status, context rail, and local/cloud build toggle.
+- **Tool-calling agent loop** with turn budget, Continue-from-summary, per-edit diffs
+  (Accept / Reject / Accept All), and Plan mode that proposes instead of auto-applying.
+- **Chain-of-thought / prompt profiles** — selectable system-prompt library; mandatory
+  reasoning before tools; read-before-write and verify-your-fix rules.
+- **Context mentions** resolved at send time: `@file`, `@folder:`, `@symbol:`,
+  `@codebase`, plus `@web` / `@docs` where configured.
+- **Subagent delegation** — nested research loops (read-focused) and async-write paths
+  with file leases so parallel work does not clobber the same paths.
+- **Sessions** — multi-turn SQLite persistence, multiple chat threads, history search,
+  transcript export, compact/summarize long threads.
+- **Chat UX** — streaming replies, copy / insert / apply code blocks, live step checklist,
+  context-window usage breakdown, stop generation.
+- **Rules, slash commands, and Skills** — project rules (`.lclreason/rules.md` /
+  `.cursorrules`), Settings → Commands, Save as Skill templates.
+- **MCP client** — external MCP servers as tools alongside the built-in tool registry.
+
+### Editor (Monaco)
+
+- Syntax highlighting, multi-cursor, folding, bracket matching, sticky scroll.
+- Per-path model cache (tab switches keep undo history).
+- Inline ghost-text / FIM completion, format-on-save, organize imports.
+- Inline diagnostics, hover, peek definition, rename, quick fixes (lightbulb).
+- Side-by-side / inline diff for agent edits; split editor and editor groups.
+- **Vim** and **Emacs** keybinding modes.
+- Tabs: dirty indicator, pin, close, split; breadcrumb path; status bar (line/col,
+  language, branch, problems count).
+
+### Language intelligence (Go via gopls)
+
+- Diagnostics, hover, go-to-definition, find references, implementations.
+- Multi-file rename (preview → apply), quick fixes, Organize Imports, Format Document.
+- Go to Symbol in file and across the workspace.
+
+### Workspace & navigation
+
+- File tree with lazy folders, icons, filter, Open Editors, drag-and-drop move,
+  New/Rename/Delete, copy path, Reveal in Finder, drag-to-chat `@mention`.
+- Respects `.gitignore` / deny paths; Collapse All.
+- Full-text search and replace-in-files (preview, case, include/exclude globs).
+- Command palette, fuzzy Quick Open, Find / Replace in editor and across files.
+
+### Terminal, Git, debug
+
+- Integrated multi-tab terminal (xterm).
+- Source Control: status, diff, stage/unstage, commit, branch switch/create; All-Agent
+  working bar with diff stats.
+- Run & Debug panel (scoped v1 via Delve DAP for Go).
+
+### Settings, workflows, diagnostics
+
+- Full Settings UI: workspace root / trust, provider & model persistence, apply mode,
+  turn safety caps, memory/index, compaction budgets, keybindings editor.
+- **settings.json** import/export; secrets and hosted API keys (multi-key, expiry,
+  verify, cost tier, model picker from key capabilities).
+- Attach / discover LAN worker nodes; node dashboard and developer metrics.
+- Diagnostics panel (planner + hang routing clocks + codebase LOC stats).
+- **Workflows** — YAML under `.lclreason/workflows/`, headless engine (shell, LLM,
+  condition, approval, loop), triggers (save / cron / commit / chat command), REST API,
+  Settings panel, visual canvas.
+- Optional **harness visualizer** — SSE event stream, Diagnostics trace, JSONL replay.
+
+### Inference & dispatch
+
+- Local: Ollama, LM Studio, AirLLM (this machine or LAN).
+- Hosted: any OpenAI-compatible provider (Anthropic, OpenAI, Groq, NVIDIA NIM,
+  OpenRouter, …).
+- **Hybrid** routing races local vs remote and keeps the first answer.
+- Vector / BM25 memory for `@codebase`-style retrieval; Hermes-style tool protocol
+  support in the agent loop.
+
+### App shell & packaging
+
+- Native desktop app (Wails) for **macOS (Apple Silicon)** and **Windows (x64)**;
+  Linux GUI build exercised in CI.
+- Application menus (File / Edit / Selection / View / Go / Run / Terminal / Help),
+  New Window, Open Folder, deep link `lclreason://`.
+- Themes: dark, light, system follow; editor + UI font size; ligatures.
+- Offline Monaco (no CDN); binary obfuscation (garble) on release builds.
+- First-run config into App Support paths; coordinator can run embedded or headless.
+
+### Explicitly not in this release
+
+- Extensions marketplace
+- Code signing / notarization (macOS Gatekeeper workaround still required)
+- Auto-update (Sparkle / equivalent)
 
 ## Screenshots
 
