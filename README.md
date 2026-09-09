@@ -1,189 +1,164 @@
 # chidori
 
-![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-000000?logo=apple)
-![Windows](https://img.shields.io/badge/Windows-x64-0078D4?logo=windows)
-![Releases](https://img.shields.io/github/v/release/xdutsuay/chidori?label=release)
+<p align="center">
+  <img alt="macOS" src="https://img.shields.io/badge/macOS-Apple%20Silicon-000000?logo=apple&style=flat-square" />
+  <img alt="Windows" src="https://img.shields.io/badge/Windows-x64-0078D4?logo=windows&style=flat-square" />
+  <img alt="Release" src="https://img.shields.io/github/v/release/xdutsuay/chidori?label=release&style=flat-square" />
+  <img alt="v0.5.0" src="https://img.shields.io/badge/latest-v0.5.0-informational?style=flat-square" />
+</p>
 
-> **This repository is a public release placeholder only.** It hosts pre-built
-> downloads, screenshots, and product documentation. **There is no source code here**
-> — do not expect to clone and build from this repo.
+<p align="center">
+  <strong>A native desktop IDE with a built-in reasoning engine.</strong><br/>
+  Ask · Agent · Plan · Debug — local-first, hybrid-routed, no Electron.
+</p>
 
-**chidori** is a cross-platform native desktop IDE with agent chat, real language
-intelligence, an integrated terminal, and a Git panel — built on a local-first
-inference engine that routes between your own machines and hosted providers.
+<p align="center">
+  <a href="https://github.com/xdutsuay/chidori/releases/tag/v0.5.0"><strong>⬇ Download v0.5.0</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://kaustubhtripathi.com/public/lab/lclreason/"><strong>Product page</strong></a>
+</p>
 
-One native app per platform. No Python, no Ray, no Electron.
+> **Binaries only.** This repository hosts pre-built downloads, screenshots, and docs.
+> **There is no source code here** — do not expect to clone and build.
 
-[**Download the latest release →**](https://github.com/xdutsuay/chidori/releases/latest)
+**Latest public binary:** [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) ·
+Code freeze through **15 September 2026** · Next build expected early October.
 
-## Why this exists
+---
 
-Most AI coding tools assume you're either fully local (no hosted-model access) or fully
-cloud (every token leaves your machine). chidori treats "where does this request run" as a
-routing decision, not an architectural commitment — a laptop with no GPU and zero
-attached nodes still gets fast answers by routing to a hosted key, and a LAN with a
-couple of Ollama boxes gets used automatically once nodes are attached, without changing
-how you interact with the IDE.
+## See it in action
 
-## Features
+Inline **GIF loops** (GitHub autoplays these). Full-length mp4s are on the [v0.5.0 Release](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0).
 
-A product-level inventory of what chidori ships today (as of **v0.3.9**). Not every
-row is VS Code–parity deep; this is what the packaged IDE actually offers.
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">
+        <img src="docs/gifs/ask-demo.gif" alt="Ask mode demo" width="100%" />
+      </a><br/>
+      <sub><strong>Ask mode</strong> · GIF loop · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">full ~3:54 mp4</a></sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">
+        <img src="docs/gifs/ui-highlight.gif" alt="UI highlight demo" width="100%" />
+      </a><br/>
+      <sub><strong>UI highlight</strong> · GIF loop · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">full 90s mp4</a></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">
+        <img src="docs/gifs/linux-pass.gif" alt="Linux pass demo" width="640" />
+      </a><br/>
+      <sub><strong>Linux pass</strong> (optional) · GIF loop · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">full ~59s mp4</a> · not a public Linux zip claim</sub>
+    </td>
+  </tr>
+</table>
 
-### Agent & chat
+More detail: [docs/DEMO.md](docs/DEMO.md).
 
-- **Modes:** Ask, Agent, Plan, and Debug — plus **All-Agent**, a chat-first layout with
-  task rail, build status, context rail, and local/cloud build toggle.
-- **Tool-calling agent loop** with turn budget, Continue-from-summary, per-edit diffs
-  (Accept / Reject / Accept All), and Plan mode that proposes instead of auto-applying.
-- **Chain-of-thought / prompt profiles** — selectable system-prompt library; mandatory
-  reasoning before tools; read-before-write and verify-your-fix rules.
-- **Context mentions** resolved at send time: `@file`, `@folder:`, `@symbol:`,
-  `@codebase`, plus `@web` / `@docs` where configured.
-- **Subagent delegation** — nested research loops (read-focused) and async-write paths
-  with file leases so parallel work does not clobber the same paths.
-- **Sessions** — multi-turn SQLite persistence, multiple chat threads, history search,
-  transcript export, compact/summarize long threads.
-- **Chat UX** — streaming replies, copy / insert / apply code blocks, live step checklist,
-  context-window usage breakdown, stop generation.
-- **Rules, slash commands, and Skills** — project rules (`.lclreason/rules.md` /
-  `.cursorrules`), Settings → Commands, Save as Skill templates.
-- **MCP client** — external MCP servers as tools alongside the built-in tool registry.
+> Public desktop packages today are **macOS arm64** and **Windows x64**.
+> Linux GUI is exercised in CI / dogfood; a public Linux zip is **not** part of v0.5.0.
 
-### Editor (Monaco)
+---
 
-- Syntax highlighting, multi-cursor, folding, bracket matching, sticky scroll.
-- Per-path model cache (tab switches keep undo history).
-- Inline ghost-text / FIM completion, format-on-save, organize imports.
-- Inline diagnostics, hover, peek definition, rename, quick fixes (lightbulb).
-- Side-by-side / inline diff for agent edits; split editor and editor groups.
-- **Vim** and **Emacs** keybinding modes.
-- Tabs: dirty indicator, pin, close, split; breadcrumb path; status bar (line/col,
-  language, branch, problems count).
+## Built for how you work
 
-### Language intelligence (Go via gopls)
+| Ask | Agent | Plan | Debug |
+|:---:|:-----:|:----:|:-----:|
+| Direct Q&A with codebase context | Autonomous coding with tool loop & diffs | Architecture & investigation — proposes, doesn't auto-apply | Error diagnosis (pairs with Delve DAP for Go) |
 
-- Diagnostics, hover, go-to-definition, find references, implementations.
-- Multi-file rename (preview → apply), quick fixes, Organize Imports, Format Document.
-- Go to Symbol in file and across the workspace.
+All four share one inference coordinator and **local ↔ hybrid ↔ remote** routing.
 
-### Workspace & navigation
-
-- File tree with lazy folders, icons, filter, Open Editors, drag-and-drop move,
-  New/Rename/Delete, copy path, Reveal in Finder, drag-to-chat `@mention`.
-- Respects `.gitignore` / deny paths; Collapse All.
-- Full-text search and replace-in-files (preview, case, include/exclude globs).
-- Command palette, fuzzy Quick Open, Find / Replace in editor and across files.
-
-### Terminal, Git, debug
-
-- Integrated multi-tab terminal (xterm).
-- Source Control: status, diff, stage/unstage, commit, branch switch/create; All-Agent
-  working bar with diff stats.
-- Run & Debug panel (scoped v1 via Delve DAP for Go).
-
-### Settings, workflows, diagnostics
-
-- Full Settings UI: workspace root / trust, provider & model persistence, apply mode,
-  turn safety caps, memory/index, compaction budgets, keybindings editor.
-- **settings.json** import/export; secrets and hosted API keys (multi-key, expiry,
-  verify, cost tier, model picker from key capabilities).
-- Attach / discover LAN worker nodes; node dashboard and developer metrics.
-- Diagnostics panel (planner + hang routing clocks + codebase LOC stats).
-- **Workflows** — YAML under `.lclreason/workflows/`, headless engine (shell, LLM,
-  condition, approval, loop), triggers (save / cron / commit / chat command), REST API,
-  Settings panel, visual canvas.
-- Optional **harness visualizer** — SSE event stream, Diagnostics trace, JSONL replay.
-
-### Inference & dispatch
-
-- Local: Ollama, LM Studio, AirLLM (this machine or LAN).
-- Hosted: any OpenAI-compatible provider (Anthropic, OpenAI, Groq, NVIDIA NIM,
-  OpenRouter, …).
-- **Hybrid** routing races local vs remote and keeps the first answer.
-- Vector / BM25 memory for `@codebase`-style retrieval; Hermes-style tool protocol
-  support in the agent loop.
-
-### App shell & packaging
-
-- Native desktop app (Wails) for **macOS (Apple Silicon)** and **Windows (x64)**;
-  Linux GUI build exercised in CI.
-- Application menus (File / Edit / Selection / View / Go / Run / Terminal / Help),
-  New Window, Open Folder, deep link `lclreason://`.
-- Themes: dark, light, system follow; editor + UI font size; ligatures.
-- Offline Monaco (no CDN); binary obfuscation (garble) on release builds.
-- First-run config into App Support paths; coordinator can run embedded or headless.
-
-### Explicitly not in this release
-
-- Extensions marketplace
-- Code signing / notarization (macOS Gatekeeper workaround still required)
-- Auto-update (Sparkle / equivalent)
+---
 
 ## Screenshots
 
-### Agent mode
+Real stills from a live session — also on the [product page](https://kaustubhtripathi.com/public/lab/lclreason/).
 
-![Agent mode — full IDE with agent chat](docs/screenshots/agentmode-inallagentwindow-halfbacked.png)
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/UPD.png" alt="IDE overview" /><br/>
+      <sub>IDE overview</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/askmode_modelthink_taskid.png" alt="Ask mode" /><br/>
+      <sub>Ask — thinking + task ID</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/agentmode-inallagentwindow-halfbacked.png" alt="Agent mode" /><br/>
+      <sub>Agent / All-Agent layout</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/chat.png" alt="Chat streaming" /><br/>
+      <sub>Chat streaming</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/debug.png" alt="Debug mode" /><br/>
+      <sub>Debug mode</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/dpd.png" alt="Distributed inference" /><br/>
+      <sub>Distributed inference</sub>
+    </td>
+  </tr>
+</table>
 
-### Ask mode (model thinking + task tracking)
+---
 
-![Ask mode with model thinking and task ID](docs/screenshots/askmode_modelthink_taskid.png)
+## Download v0.5.0
 
-### Chat
-
-![Chat streaming in the IDE](docs/screenshots/chat.png)
-
-### Debug mode
-
-![Debug mode activity view](docs/screenshots/debug.png)
-
-### Distributed inference
-
-![Distributed inference panel](docs/screenshots/dpd.png)
-
-### IDE overview
-
-![chidori IDE overview](docs/screenshots/UPD.png)
-
-## Download & install
-
-Pre-built binaries are published on the [**Releases**](https://github.com/xdutsuay/chidori/releases)
-page. Pick the archive for your platform:
+Pre-built binaries from [**Releases**](https://github.com/xdutsuay/chidori/releases):
 
 | Platform | Artifact |
-|---|---|
-| macOS (Apple Silicon) | `chidori-macos-arm64.zip` — unzip, then open `chidori.app` |
-| Windows (x64) | `chidori-windows-amd64.zip` — unzip, then run `chidori.exe` |
-
-> **macOS Gatekeeper:** chidori is not code-signed yet. On first launch, macOS may block
-> the app. Right-click `chidori.app` → **Open** → confirm **Open** in the dialog. After
-> that, double-click works normally.
-
-## Quick start
-
-1. **Download** the latest release for your platform (link above).
-2. **Launch** chidori and use **File → Open Folder…** to pick a project workspace.
-3. **Configure inference** — open **Settings → Inference Source**:
-   - **Local:** run [Ollama](https://ollama.com) or [LM Studio](https://lmstudio.ai) on
-     this machine or another machine on your LAN, then use **Scan LAN** or attach by IP.
-   - **Hosted:** add an API key for any OpenAI-compatible provider (Anthropic, OpenAI,
-     Groq, NVIDIA NIM, OpenRouter, …). A hosted key works with zero local nodes attached.
-4. **Start chatting** — pick a mode (Ask, Agent, Plan, or Debug) and send a message.
-   Use `@file`, `@folder`, or `@codebase` to pull workspace context into the prompt.
-
-### Optional: Go language features
-
-For full Go LSP support inside the IDE, install `gopls` once:
+|:---------|:---------|
+| **macOS** (Apple Silicon) | [`chidori-macos-arm64-v0.5.0.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-macos-arm64-v0.5.0.zip) |
+| **Windows** (x64) | [`chidori-windows-amd64-v0.5.0.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-windows-amd64-v0.5.0.zip) |
+| **Android companion** | APK from [`xdutsuay/chidori-nagasa`](https://github.com/xdutsuay/chidori-nagasa/releases) |
 
 ```bash
-go install golang.org/x/tools/gopls@latest
+# macOS
+curl -LO https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-macos-arm64-v0.5.0.zip
+unzip chidori-macos-arm64-v0.5.0.zip
+
+# Windows (PowerShell)
+curl.exe -LO https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-windows-amd64-v0.5.0.zip
 ```
 
-Restart chidori after installing. Other languages use Monaco's built-in editing; Go gets
-diagnostics, go-to-definition, rename, and quick fixes through gopls.
+> **macOS Gatekeeper.** chidori is **not code-signed or notarized** in v0.5.0.
+> On first launch, right-click `chidori.app` → **Open** → confirm **Open**.
+> That is Gatekeeper's normal response to unsigned apps — not a malware scan.
+> Signing / notarization are on the public roadmap (no date yet).
 
-## How routing works
+**Requirements:** macOS 10.10+ (Apple Silicon) · Windows 7+ x64 · optional [Ollama](https://ollama.com) / [LM Studio](https://lmstudio.ai) for local inference.
+
+---
+
+## What's new in v0.5.0
+
+High-reliability desktop checkpoint — aligned with the [product page](https://kaustubhtripathi.com/public/lab/lclreason/):
+
+- **Stop actually stops** — shared Ask/Agent/Plan/Debug deadlines; packaged Stop cancel
+- **Oversize prompts fail loudly** — fail-closed context budget (HTTP 400 unless truncate)
+- **Faster re-index after edits** — incremental workspace RAG
+- **Broken tools error out** — Grok ACP + MCP fail-closed; Zen / secondary sidebar
+- **Android companion APK** — LAN pair, monitor, remote chat ([chidori-nagasa](https://github.com/xdutsuay/chidori-nagasa))
+
+| Status | Item |
+|:-------|:-----|
+| Shipped | Android companion APK |
+| Next | CLI inside the packaged app (`chidori ask` on PATH) |
+| Later | Signed / notarized macOS builds |
+
+---
+
+## Hybrid routing
+
+Most AI coding tools force a choice: fully local or fully cloud. chidori treats
+*where a request runs* as a routing decision.
 
 ```
 chidori (native desktop IDE)
@@ -194,47 +169,84 @@ chidori (native desktop IDE)
   └── Agent chat  ──►  Tool-calling agent loop
                           │
                           ▼
-                       Dispatch layer
-                          │  local ↔ hybrid ↔ remote routing
+                       Dispatch
+                    local ↔ hybrid ↔ remote
                     ┌─────┴─────┐
               Local nodes    Hosted providers
-          (Ollama/LM Studio/   (Anthropic/OpenAI/Groq/
-           AirLLM, LAN or       NVIDIA NIM/OpenRouter/…)
-           this machine)
+           Ollama / LM Studio   Anthropic / OpenAI /
+           / AirLLM (LAN)       Groq / NIM / OpenRouter / …
 ```
 
-**Local** sends requests to a node on your machine or LAN. **Hybrid** races a local leg
-against a hosted leg and keeps whichever answers first. **Remote** uses a hosted provider
-directly — useful when you have no local GPU.
+- **Local** — this machine or a LAN node
+- **Hybrid** — race local vs hosted; keep the first answer
+- **Remote** — hosted key with zero local nodes
 
-Configure providers and nodes in **Settings → Inference Source**. The agent picks routing
-based on your settings and prompt difficulty.
+Configure in **Settings → Inference Source**.
 
-## Supported providers
+---
 
-| Type | Examples |
-|---|---|
-| Local | Ollama, LM Studio, AirLLM |
-| Hosted (OpenAI-compatible) | Anthropic, OpenAI, Groq, NVIDIA NIM, OpenRouter, and others |
+## Companion
 
-Add multiple hosted keys in Settings; each can have an optional expiry and cost tier
-(free / capped / paid) that influences default routing.
+Pair an Android phone as companion or optional inference node.
 
-## Project rules & skills
+| | |
+|:--|:--|
+| **APK** | Debug-signed sideload from [`chidori-nagasa` Releases](https://github.com/xdutsuay/chidori-nagasa/releases) (source public / MIT) |
+| **Desktop** | Settings → Companion — listen on port **8027** |
+| **Phone** | Settings → Chidori Desktop — mDNS discover or `host:8027` |
+| **Capabilities** | Monitor runs · remote chat through desktop models · optional phone-as-node (on-device GGUF) |
 
-- Drop a `.lclreason/rules.md` or `.cursorrules` file in your project root — chidori
-  injects it into every agent request automatically.
-- Define reusable slash commands from **Settings → Commands**.
-- After a useful agent run, use **Save as Skill** to turn it into a per-workspace prompt
-  template you can invoke again.
+---
+
+## Getting started
+
+1. **Download** [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) for your platform.
+2. **Launch** chidori → **File → Open Folder…** and pick a workspace.
+3. **Configure inference** in **Settings → Inference Source** — attach Ollama/LM Studio (Scan LAN or IP), or add a hosted OpenAI-compatible API key.
+4. **Start chatting** — pick Ask, Agent, Plan, or Debug. Use `@file`, `@folder`, or `@codebase` for workspace context.
+
+<details>
+<summary><strong>Optional: Go language features</strong></summary>
+
+```bash
+go install golang.org/x/tools/gopls@latest
+```
+
+Restart chidori. Go gets diagnostics, go-to-definition, rename, and quick fixes via gopls.
+Other languages use Monaco's built-in editing.
+
+</details>
+
+<details>
+<summary><strong>Optional: project rules & skills</strong></summary>
+
+- Drop `.lclreason/rules.md` or `.cursorrules` in the project root — injected into every agent request.
+- Define slash commands in **Settings → Commands**.
+- After a useful run, **Save as Skill** to keep a per-workspace prompt template.
+
+</details>
+
+---
+
+## Deep features
+
+The README stays light. Full product inventory — editor, agent loop, LSP, workflows,
+settings, packaging, and explicit non-goals — lives in **[docs/FEATURES.md](docs/FEATURES.md)**.
+
+---
 
 ## Feedback
 
-Found a bug or want a feature? Open an issue on this repo:
-[github.com/xdutsuay/chidori/issues](https://github.com/xdutsuay/chidori/issues)
+Bugs & ideas → [github.com/xdutsuay/chidori/issues](https://github.com/xdutsuay/chidori/issues)
+
+Product site & changelog → [kaustubhtripathi.com/public/lab/lclreason/](https://kaustubhtripathi.com/public/lab/lclreason/)
+
+Watch [Releases](https://github.com/xdutsuay/chidori/releases) for new binaries.
+
+---
 
 ## License
 
 Documentation in this repository is MIT-licensed (see [LICENSE](LICENSE)).
 
-chidori is distributed as pre-built binaries only. **Source code is not published.**
+chidori is distributed as **pre-built binaries only**. **Source code is not published.**
