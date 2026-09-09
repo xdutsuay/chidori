@@ -1,9 +1,12 @@
 # Features — chidori v0.5.0
 
-Detailed product inventory for the public desktop IDE. Evidence base:
+Thorough product inventory for the public desktop IDE. The README stays light;
+**this page is the deep reference.**
 
-- Public README historically published on `xdutsuay/chidori` (feature depth)
-- Product page [kaustubhtripathi.com/public/lab/lclreason/](https://kaustubhtripathi.com/public/lab/lclreason/) (v0.5.0 story + freeze)
+Evidence base:
+
+- Public README historically published on `xdutsuay/chidori`
+- Product page [kaustubhtripathi.com/public/lab/lclreason/](https://kaustubhtripathi.com/public/lab/lclreason/)
 - GitHub Release notes for [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) / [v0.4.0](https://github.com/xdutsuay/chidori/releases/tag/v0.4.0)
 
 This is what the **packaged** IDE offers. Not every surface is VS Code–parity deep.
@@ -15,7 +18,7 @@ Do **not** treat Linux dogfood notes as public ship claims — Releases today ar
 ## AI modes
 
 | Mode | Intent | Behavior highlights |
-|---|---|---|
+|:-----|:-------|:--------------------|
 | **Ask** | Direct Q&A | Streams answers beside the editor; `@file` / `@folder` / `@codebase` context; Research toggle for deeper retrieval |
 | **Agent** | Autonomous coding | Tool-calling loop, turn budget, per-edit diffs (Accept / Reject / Accept All) |
 | **Plan** | Architecture & investigation | Proposes changes instead of auto-applying |
@@ -33,16 +36,11 @@ Shared across modes (v0.5.0 reliability):
 ## Agent loop & context
 
 - Tool-calling agent loop with Continue-from-summary
-- Chain-of-thought / prompt profiles (system-prompt library; reason-before-tools;
-  read-before-write; verify-your-work)
-- Context mentions at send time: `@file`, `@folder:`, `@symbol:`, `@codebase`,
-  plus `@web` / `@docs` where configured
-- Subagent delegation — nested research (read-focused) and async-write paths with
-  file leases
-- Sessions — SQLite multi-turn persistence, multiple threads, history search,
-  transcript export, compact/summarize
-- Chat UX — streaming, copy / insert / apply code blocks, live step checklist,
-  context-window usage breakdown, stop generation
+- Chain-of-thought / prompt profiles (system-prompt library; reason-before-tools; read-before-write; verify-your-work)
+- Context mentions at send time: `@file`, `@folder:`, `@symbol:`, `@codebase`, plus `@web` / `@docs` where configured
+- Subagent delegation — nested research (read-focused) and async-write paths with file leases
+- Sessions — SQLite multi-turn persistence, multiple threads, history search, transcript export, compact/summarize
+- Chat UX — streaming, copy / insert / apply code blocks, live step checklist, context-window usage breakdown, stop generation
 - Project rules — `.lclreason/rules.md` or `.cursorrules`
 - Slash commands — Settings → Commands
 - Skills — Save as Skill templates per workspace
@@ -79,8 +77,6 @@ Shared across modes (v0.5.0 reliability):
 Other languages use Monaco's built-in editing without a dedicated LSP package in
 the public story.
 
-Install once:
-
 ```bash
 go install golang.org/x/tools/gopls@latest
 ```
@@ -89,8 +85,7 @@ go install golang.org/x/tools/gopls@latest
 
 ## Workspace & navigation
 
-- File tree: lazy folders, icons, filter, Open Editors, drag-and-drop move,
-  New / Rename / Delete, copy path, Reveal in Finder, drag-to-chat `@mention`
+- File tree: lazy folders, icons, filter, Open Editors, drag-and-drop move, New / Rename / Delete, copy path, Reveal in Finder, drag-to-chat `@mention`
 - Respects `.gitignore` / deny paths; Collapse All
 - Full-text search and replace-in-files (preview, case, include/exclude globs)
 - Command palette, fuzzy Quick Open
@@ -119,12 +114,10 @@ Hosted OpenAI-compatible (Anthropic, OpenAI, Groq, NVIDIA NIM, OpenRouter, …)
 - **Local** — attach by Scan LAN or IP; auto-detect localhost Ollama when present
 - **Remote** — hosted key with zero local nodes
 - **Hybrid** — race local vs remote; keep first answer
-- Multi-key hosted secrets: expiry, verify, cost tier (free / capped / paid),
-  model picker from key capabilities
+- Multi-key hosted secrets: expiry, verify, cost tier (free / capped / paid), model picker from key capabilities
 - Vector / BM25 memory for `@codebase`-style retrieval
 - Hermes-style tool protocol support in the agent loop
-- **Incremental workspace RAG** (v0.5.0) — skips unchanged files, replaces edits,
-  drops deletes
+- **Incremental workspace RAG** (v0.5.0) — skips unchanged files, replaces edits, drops deletes
 
 Configure in **Settings → Inference Source**.
 
@@ -142,9 +135,7 @@ Also:
 - Attach / discover LAN worker nodes; node dashboard; developer metrics
 - Diagnostics panel (planner + hang routing clocks + codebase LOC stats)
 - Usage surfaces for operator visibility
-- **Workflows** — YAML under `.lclreason/workflows/`; headless engine (shell, LLM,
-  condition, approval, loop); triggers (save / cron / commit / chat command);
-  REST API; Settings panel; visual canvas
+- **Workflows** — YAML under `.lclreason/workflows/`; headless engine (shell, LLM, condition, approval, loop); triggers (save / cron / commit / chat command); REST API; Settings panel; visual canvas
 - Optional harness visualizer — SSE event stream, Diagnostics trace, JSONL replay
 - **Companion** — desktop listener (default **8027**) for Android APK pairing
 
@@ -172,7 +163,7 @@ Android companion APK ships from
 ## Explicitly not in v0.5.0
 
 | Missing | Notes |
-|---|---|
+|:--------|:------|
 | Extensions marketplace | Not planned in this checkpoint |
 | Code signing / notarization | Gatekeeper right-click Open still required on macOS |
 | Auto-update | No Sparkle / equivalent yet |
@@ -182,8 +173,6 @@ Android companion APK ships from
 ---
 
 ## What's new specifically in v0.5.0
-
-Mirrored from the public product page / release story:
 
 1. Stop actually stops (shared deadlines + packaged Stop cancel)
 2. Oversize prompts fail loudly (fail-closed context budget)
