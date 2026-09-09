@@ -28,29 +28,29 @@ Code freeze through **15 September 2026** · Next build expected early October.
 
 ## See it in action
 
-GitHub README won't play `<video>` tags — so these are **clickable posters** that open the demo mp4s from the [v0.5.0 Release](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0).
+Inline **GIF loops** (GitHub autoplays these). Full-length mp4s are on the [v0.5.0 Release](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0).
 
 <table>
   <tr>
     <td align="center" width="50%">
       <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">
-        <img src="docs/screenshots/askmode_modelthink_taskid.png" alt="Ask mode demo" width="100%" />
+        <img src="docs/gifs/ask-demo.gif" alt="Ask mode demo" width="100%" />
       </a><br/>
-      <sub><strong>Ask mode</strong> · ~3:54 · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">▶ Play</a></sub>
+      <sub><strong>Ask mode</strong> · GIF loop · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">full ~3:54 mp4</a></sub>
     </td>
     <td align="center" width="50%">
       <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">
-        <img src="docs/screenshots/UPD.png" alt="UI highlight demo" width="100%" />
+        <img src="docs/gifs/ui-highlight.gif" alt="UI highlight demo" width="100%" />
       </a><br/>
-      <sub><strong>UI highlight</strong> · 90s · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">▶ Play</a></sub>
+      <sub><strong>UI highlight</strong> · GIF loop · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">full 90s mp4</a></sub>
     </td>
   </tr>
   <tr>
     <td align="center" colspan="2">
       <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">
-        <img src="docs/screenshots/chat.png" alt="Linux pass demo" width="640" />
+        <img src="docs/gifs/linux-pass.gif" alt="Linux pass demo" width="640" />
       </a><br/>
-      <sub><strong>Linux pass</strong> (optional) · ~59s · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">▶ Play</a> · not a public Linux zip claim</sub>
+      <sub><strong>Linux pass</strong> (optional) · GIF loop · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">full ~59s mp4</a> · not a public Linux zip claim</sub>
     </td>
   </tr>
 </table>
