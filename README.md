@@ -28,31 +28,34 @@ Code freeze through **15 September 2026** · Next build expected early October.
 
 ## See it in action
 
-Clips are hosted on the [v0.5.0 Release](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) (not committed into git).
+GitHub README won't play `<video>` tags — so these are **clickable posters** that open the demo mp4s from the [v0.5.0 Release](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0).
 
 <table>
   <tr>
     <td align="center" width="50%">
-      <strong>Ask mode</strong> · ~3:54<br/>
-      <video src="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4" controls playsinline preload="metadata" poster="docs/screenshots/askmode_modelthink_taskid.png" width="100%"></video><br/>
-      <sub><a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">Open / download</a></sub>
+      <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">
+        <img src="docs/screenshots/askmode_modelthink_taskid.png" alt="Ask mode demo" width="100%" />
+      </a><br/>
+      <sub><strong>Ask mode</strong> · ~3:54 · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ask-demo.mp4">▶ Play</a></sub>
     </td>
     <td align="center" width="50%">
-      <strong>UI highlight</strong> · 90s<br/>
-      <video src="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4" controls playsinline preload="metadata" poster="docs/screenshots/UPD.png" width="100%"></video><br/>
-      <sub><a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">Open / download</a></sub>
+      <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">
+        <img src="docs/screenshots/UPD.png" alt="UI highlight demo" width="100%" />
+      </a><br/>
+      <sub><strong>UI highlight</strong> · 90s · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/ui-highlight.mp4">▶ Play</a></sub>
     </td>
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <strong>Linux pass</strong> (optional) · ~59s — Ctrl+W closes tabs, app stays open<br/>
-      <video src="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4" controls playsinline preload="metadata" poster="docs/screenshots/chat.png" width="640"></video><br/>
-      <sub><a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">Open / download</a> · not a public Linux zip claim</sub>
+      <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">
+        <img src="docs/screenshots/chat.png" alt="Linux pass demo" width="640" />
+      </a><br/>
+      <sub><strong>Linux pass</strong> (optional) · ~59s · <a href="https://github.com/xdutsuay/chidori/releases/download/v0.5.0/linux-pass.mp4">▶ Play</a> · not a public Linux zip claim</sub>
     </td>
   </tr>
 </table>
 
-> **Note:** GitHub’s README renderer is picky about `<video>`. If a player doesn’t appear in your viewer, use the Open / download links (they always work). Full notes: [docs/DEMO.md](docs/DEMO.md).
+More detail: [docs/DEMO.md](docs/DEMO.md).
 
 > Public desktop packages today are **macOS arm64** and **Windows x64**.
 > Linux GUI is exercised in CI / dogfood; a public Linux zip is **not** part of v0.5.0.
