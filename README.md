@@ -18,8 +18,8 @@
   <a href="https://kaustubhtripathi.com/public/lab/lclreason/"><strong>Product page</strong></a>
 </p>
 
-> **Binaries only.** This repository hosts pre-built downloads, screenshots, and docs.
-> **There is no source code here** — do not expect to clone and build.
+> **Binaries only for the product.** This repository hosts pre-built downloads, screenshots, and docs.
+> Selected packages under `internal/` are **structure stubs** (real filenames / signatures, `panic("fake")` bodies) — not a buildable product tree. Do not expect to clone and ship a working IDE from this repo.
 
 **Latest public binary:** [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) ·
 Code freeze through **15 September 2026** · Next build expected early October.
