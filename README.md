@@ -4,7 +4,7 @@
   <img alt="macOS" src="https://img.shields.io/badge/macOS-Apple%20Silicon-000000?logo=apple&style=flat-square" />
   <img alt="Windows" src="https://img.shields.io/badge/Windows-x64-0078D4?logo=windows&style=flat-square" />
   <img alt="Release" src="https://img.shields.io/github/v/release/xdutsuay/chidori?label=release&style=flat-square" />
-  <img alt="v0.5.0" src="https://img.shields.io/badge/latest-v0.5.0-informational?style=flat-square" />
+  <img alt="v0.7.27" src="https://img.shields.io/badge/latest-v0.7.27-informational?style=flat-square" />
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/xdutsuay/chidori/releases/tag/v0.5.0"><strong>⬇ Download v0.5.0</strong></a>
+  <a href="https://github.com/xdutsuay/chidori/releases/tag/v0.7.27"><strong>⬇ Download v0.7.27</strong></a>
   &nbsp;·&nbsp;
   <a href="https://kaustubhtripathi.com/public/lab/lclreason/"><strong>Product page</strong></a>
 </p>
@@ -21,8 +21,7 @@
 > **Binaries only for the product.** This repository hosts pre-built downloads, screenshots, and docs.
 > Selected packages under `internal/` are **structure stubs** (real filenames / signatures, `panic("fake")` bodies) — not a buildable product tree. Do not expect to clone and ship a working IDE from this repo.
 
-**Latest public binary:** [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) ·
-Code freeze through **15 September 2026** · Next build expected early October.
+**Latest public binary:** [v0.7.27](https://github.com/xdutsuay/chidori/releases/tag/v0.7.27) (from [lclreason v0.7.27](https://github.com/xdutsuay/lclreason/releases/tag/v0.7.27)).
 
 ---
 
@@ -57,8 +56,8 @@ Inline **GIF loops** (GitHub autoplays these). Full-length mp4s are on the [v0.5
 
 More detail: [docs/DEMO.md](docs/DEMO.md).
 
-> Public desktop packages today are **macOS arm64** and **Windows x64**.
-> Linux GUI is exercised in CI / dogfood; a public Linux zip is **not** part of v0.5.0.
+> Public desktop packages: **macOS arm64**, **Windows x64**, and **Linux x64** (webkit2gtk 4.1).
+> Demo mp4s below still live on the [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) release assets.
 
 ---
 
@@ -109,49 +108,53 @@ Real stills from a live session — also on the [product page](https://kaustubht
 
 ---
 
-## Download v0.5.0
+## Download v0.7.27
 
-Pre-built binaries from [**Releases**](https://github.com/xdutsuay/chidori/releases):
+Pre-built binaries from [**Releases**](https://github.com/xdutsuay/chidori/releases) (built from [lclreason `v0.7.27`](https://github.com/xdutsuay/lclreason/releases/tag/v0.7.27)):
 
 | Platform | Artifact |
 |:---------|:---------|
-| **macOS** (Apple Silicon) | [`chidori-macos-arm64-v0.5.0.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-macos-arm64-v0.5.0.zip) |
-| **Windows** (x64) | [`chidori-windows-amd64-v0.5.0.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-windows-amd64-v0.5.0.zip) |
+| **macOS** (Apple Silicon) | [`chidori-macos-arm64-v0.7.27.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.7.27/chidori-macos-arm64-v0.7.27.zip) |
+| **Windows** (x64) | [`chidori-windows-amd64-v0.7.27.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.7.27/chidori-windows-amd64-v0.7.27.zip) |
+| **Linux** (x64) | [`chidori-linux-amd64-v0.7.27.zip`](https://github.com/xdutsuay/chidori/releases/download/v0.7.27/chidori-linux-amd64-v0.7.27.zip) |
 | **Android companion** | APK from [`xdutsuay/chidori-nagasa`](https://github.com/xdutsuay/chidori-nagasa/releases) |
 
 ```bash
 # macOS
-curl -LO https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-macos-arm64-v0.5.0.zip
-unzip chidori-macos-arm64-v0.5.0.zip
+curl -LO https://github.com/xdutsuay/chidori/releases/download/v0.7.27/chidori-macos-arm64-v0.7.27.zip
+unzip chidori-macos-arm64-v0.7.27.zip
 
 # Windows (PowerShell)
-curl.exe -LO https://github.com/xdutsuay/chidori/releases/download/v0.5.0/chidori-windows-amd64-v0.5.0.zip
+curl.exe -LO https://github.com/xdutsuay/chidori/releases/download/v0.7.27/chidori-windows-amd64-v0.7.27.zip
+
+# Linux
+curl -LO https://github.com/xdutsuay/chidori/releases/download/v0.7.27/chidori-linux-amd64-v0.7.27.zip
 ```
 
-> **macOS Gatekeeper.** chidori is **not code-signed or notarized** in v0.5.0.
+> **macOS Gatekeeper.** chidori is **not code-signed or notarized** in v0.7.27.
 > On first launch, right-click `chidori.app` → **Open** → confirm **Open**.
 > That is Gatekeeper's normal response to unsigned apps — not a malware scan.
-> Signing / notarization are on the public roadmap (no date yet).
+> Signing / notarization remain on the public roadmap (KMA-13).
 
-**Requirements:** macOS 10.10+ (Apple Silicon) · Windows 7+ x64 · optional [Ollama](https://ollama.com) / [LM Studio](https://lmstudio.ai) for local inference.
+**Requirements:** macOS 10.10+ (Apple Silicon) · Windows 7+ x64 · Linux x64 with webkit2gtk 4.1 · optional [Ollama](https://ollama.com) / [LM Studio](https://lmstudio.ai) for local inference.
 
 ---
 
-## What's new in v0.5.0
+## What's new in v0.7.27
 
-High-reliability desktop checkpoint — aligned with the [product page](https://kaustubhtripathi.com/public/lab/lclreason/):
+Fleet slice since v0.7.0 — details on the [product changelog](https://kaustubhtripathi.com/public/lab/lclreason/changelog/):
 
-- **Stop actually stops** — shared Ask/Agent/Plan/Debug deadlines; packaged Stop cancel
-- **Oversize prompts fail loudly** — fail-closed context budget (HTTP 400 unless truncate)
-- **Faster re-index after edits** — incremental workspace RAG
-- **Broken tools error out** — Grok ACP + MCP fail-closed; Zen / secondary sidebar
-- **Android companion APK** — LAN pair, monitor, remote chat ([chidori-nagasa](https://github.com/xdutsuay/chidori-nagasa))
+- **Run board** — lifecycle (`needs_you`) + PR axis (`gh` poller) + Diagnostics board
+- **Companion** — phone approve/reject, notifications, `workflow_run_id` for gates
+- **Agent** — reflection, goals, job priority, explore notes, A2A handoff, bg-shell session bind
+- **Release provenance** — `SHA256SUMS` + `release-manifest.json` on every tag (KMA-66)
+- **Hidden Cursor SDK override** + native-vs-SDK tally (compile-time / Diagnostics)
 
 | Status | Item |
 |:-------|:-----|
-| Shipped | Android companion APK |
-| Next | CLI inside the packaged app (`chidori ask` on PATH) |
-| Later | Signed / notarized macOS builds |
+| Shipped | macOS / Windows / Linux desktop zips + checksums |
+| Shipped | Android companion (LAN) |
+| Later | Signed / notarized macOS builds (KMA-13) |
 
 ---
 
@@ -200,7 +203,7 @@ Pair an Android phone as companion or optional inference node.
 
 ## Getting started
 
-1. **Download** [v0.5.0](https://github.com/xdutsuay/chidori/releases/tag/v0.5.0) for your platform.
+1. **Download** [v0.7.27](https://github.com/xdutsuay/chidori/releases/tag/v0.7.27) for your platform.
 2. **Launch** chidori → **File → Open Folder…** and pick a workspace.
 3. **Configure inference** in **Settings → Inference Source** — attach Ollama/LM Studio (Scan LAN or IP), or add a hosted OpenAI-compatible API key.
 4. **Start chatting** — pick Ask, Agent, Plan, or Debug. Use `@file`, `@folder`, or `@codebase` for workspace context.
